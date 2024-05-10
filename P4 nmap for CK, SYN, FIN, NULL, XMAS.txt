@@ -1,0 +1,20 @@
+AIM : Using Nmap scanner to perform port scanning of various forms ACK, SYN, FIN, NULL, XMAS.
+
+1. ACK -sA (TCP ACK scan): It never determines open (or even open|filtered) ports. It is used to map out
+firewall rulesets,determining whether they are stateful or not and which ports are filtered.
+Command: nmap -sA -T4 scanme.nmap.org
+
+
+2. SYN (Stealth Scan)(-sS): SYN scan is the default and most popular scan option for good reason. It can be
+performed quickly, scanning thousands of ports per second on a fast network not hampered by intrusive
+firewalls.
+Command: nmap -p22,113,139 scanme.nmap.org
+
+3.FIN Scan (-sF) :Set just the TCP Fin bit.
+Command: nmap -sF scanme.nmap.org
+
+4. Null Scan (-sN): Does not set any bits (TCP flag header is 0).
+Command: nmap –sN –p22 scanme.nmap.org
+
+5. XMAS Scan (-sX): Sets the FIN, PSH, and URG flags, lighting the packet up like a Christmas tree.
+Command: nmap -sX scanme.nmap.org
